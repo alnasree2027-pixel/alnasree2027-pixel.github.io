@@ -3,21 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقع الناصري</title>
+    <title>عبد الناصر الشميري - الناصري</title>
     <style>
-        body { background-color: #0d0d0d; color: #00ffcc; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; }
-        .container { border: 2px solid #00ffcc; margin: 50px auto; padding: 30px; width: 85%; border-radius: 20px; box-shadow: 0 0 15px #00ffcc; background: #1a1a1a; }
-        h1 { font-size: 2rem; text-shadow: 0 0 10px #00ffcc; }
-        .btn { display: inline-block; background: #00ffcc; color: #000; padding: 15px 30px; border-radius: 10px; text-decoration: none; font-weight: bold; margin-top: 20px; box-shadow: 0 5px 10px rgba(0,255,204,0.3); }
-        .btn:hover { background: #00ccaa; box-shadow: 0 0 20px #00ffcc; }
+        body {
+            background-color: #050505;
+            color: #f1c40f;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .main-wrapper {
+            border: 3px solid #f1c40f;
+            margin: 30px auto;
+            padding: 40px 20px;
+            width: 88%;
+            max-width: 500px;
+            border-radius: 25px;
+            box-shadow: 0 0 25px rgba(241, 196, 15, 0.4), inset 0 0 10px rgba(241, 196, 15, 0.2);
+            background: rgba(13, 13, 13, 0.95);
+            position: relative;
+        }
+
+        /* حاوية الاسم المقوس والشعار */
+        .curved-header {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        /* SVG للاسم المقوس */
+        .curved-name-svg {
+            width: 100%;
+            height: 90px;
+            position: absolute;
+            top: -25px; /* رفع الاسم فوق الشعار */
+            left: 0;
+            z-index: 2;
+        }
+
+        .curved-text {
+            fill: #f1c40f;
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(241, 196, 15, 0.7);
+        }
+
+        /* شعار الناصري */
+        .profile-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 4px solid #f1c40f;
+            margin-top: 40px; /* مسافة لاسم مقوس فوقه */
+            box-shadow: 0 0 20px #f1c40f;
+            transition: 0.5s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.08) rotate(5deg);
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            color: #fff;
+            text-shadow: 0 0 15px #f1c40f;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #ccc;
+            margin-top: 0;
+        }
+
+        .hr-gold {
+            border: 0;
+            height: 1.5px;
+            background: linear-gradient(to right, transparent, #f1c40f, transparent);
+            margin: 25px 0;
+        }
+
+        /* زر تليجرام الفخم */
+        .btn-telegram {
+            display: inline-block;
+            background: linear-gradient(45deg, #f1c40f, #a0810d);
+            color: #000;
+            padding: 18px 40px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 15px;
+            box-shadow: 0 6px 20px rgba(241, 196, 15, 0.5);
+            transition: 0.4s;
+        }
+
+        .btn-telegram:hover {
+            transform: scale(1.06);
+            box-shadow: 0 0 35px #f1c40f;
+        }
+
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>مرحباً بك في موقع الناصري</h1>
-        <p>هنا تجد تطبيقاتي، كيبورداتي، ومشاريعي التقنية</p>
-        <hr style="border: 0.5px solid #333;">
-        <a href="https://t.me/ALNassrA" class="btn">قناتي على تليجرام</a>
+
+    <div class="main-wrapper">
+        <div class="curved-header">
+            <svg class="curved-name-svg" viewBox="0 0 500 150">
+                <path id="curvePath" d="M 50 120 C 150 50, 350 50, 450 120" fill="transparent" />
+                <text class="curved-text">
+                    <textPath href="#curvePath" startOffset="50%" text-anchor="middle">
+                        عبد الناصر الشميري
+                    </textPath>
+                </text>
+            </svg>
+
+            <img src="https://github.com/alnasree2027-pixel.png" alt="الناصري" class="profile-img">
+        </div>
+
+        <h2>الناصري للتقنية</h2>
+        <p>مصمم كيبوردات وتطبيقات | مشاريع حصرية</p>
+        <hr class="hr-gold">
+        
+        <a href="https://t.me/tukgyguiggh" class="btn-telegram">انضم لقناتي على تليجرام</a>
     </div>
+
 </body>
 </html>
+

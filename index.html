@@ -76,27 +76,21 @@
             text-transform: uppercase;
         }
 
-        /* تنسيق العبارة المشهورة مع تأثير الضوء المتحرك */
         .famous-quote {
             font-size: 1.3rem;
             font-weight: bold;
             font-style: italic;
             margin-bottom: 5px;
-            /* إنشاء تدرج لوني للضوء */
             background: linear-gradient(to right, #d4af37 0%, #fff 50%, #d4af37 100%);
-            background-size: 200% auto; /* جعل التدرج أوسع للحركة */
-            -webkit-background-clip: text; /* قص الخلفية لتظهر داخل النص فقط */
-            -webkit-text-fill-color: transparent; /* جعل لون النص الأصلي شفافاً */
-            /* إضافة الحركة */
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             animation: shine 2.5s linear infinite;
             text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
         }
 
-        /* تعريف حركة الضوء */
         @keyframes shine {
-            to {
-                background-position: 200% center; /* تحريك التدرج اللوني */
-            }
+            to { background-position: 200% center; }
         }
 
         .tagline {
@@ -161,9 +155,16 @@
 
         .app-info h3 {
             margin: 0;
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #ddd;
             text-align: right;
+        }
+
+        .app-info span {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--gold);
+            margin-top: 3px;
         }
 
         .download-btn {
@@ -193,9 +194,7 @@
         </div>
 
         <h2>الناصري للتقنية</h2>
-        
         <p class="famous-quote">كن من تكون لاتهمني</p>
-        
         <p class="tagline">DEVELOPER & DESIGNER | EXCLUSIVE PROJECTS</p>
         
         <hr class="hr-gold">
@@ -208,14 +207,16 @@
 
         <div class="app-card">
             <div class="app-info">
-                <h3>كيبورد الناصري الاحترافي</h3>
+                <h3>تعلم الهكر الأخلاقي</h3>
+                <span>برعاية الناصري</span>
             </div>
             <a href="#" class="download-btn">تحميل APK</a>
         </div>
 
         <div class="app-card">
             <div class="app-info">
-                <h3>تطبيق تعديل Smali</h3>
+                <h3>كيبورد الناصري 1</h3>
+                <span>إصدار حصري</span>
             </div>
             <a href="#" class="download-btn">تحميل APK</a>
         </div>

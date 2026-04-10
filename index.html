@@ -76,21 +76,22 @@
             text-transform: uppercase;
         }
 
+        /* تأثير العبارة اللامعة بألوان متعددة */
         .famous-quote {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: bold;
-            font-style: italic;
-            margin-bottom: 5px;
-            background: linear-gradient(to right, #d4af37 0%, #fff 50%, #d4af37 100%);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shine 2.5s linear infinite;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+            margin-bottom: 10px;
+            display: inline-block;
+            direction: ltr;
+            animation: colorShift 4s infinite alternate;
         }
 
-        @keyframes shine {
-            to { background-position: 200% center; }
+        @keyframes colorShift {
+            0% { color: #ff0000; text-shadow: 0 0 10px #ff0000; }
+            25% { color: #00ff00; text-shadow: 0 0 10px #00ff00; }
+            50% { color: #00d2ff; text-shadow: 0 0 10px #00d2ff; }
+            75% { color: #ffff00; text-shadow: 0 0 10px #ffff00; }
+            100% { color: #ff00ff; text-shadow: 0 0 10px #ff00ff; }
         }
 
         .tagline {
@@ -143,7 +144,7 @@
 
         .app-card {
             background: rgba(255, 255, 255, 0.03);
-            border-left: 3px solid var(--gold);
+            border-right: 3px solid var(--gold);
             border-radius: 10px;
             padding: 15px;
             margin: 15px auto;
@@ -155,14 +156,14 @@
 
         .app-info h3 {
             margin: 0;
-            font-size: 0.95rem;
+            font-size: 0.90rem;
             color: #ddd;
             text-align: right;
         }
 
         .app-info span {
             display: block;
-            font-size: 0.75rem;
+            font-size: 0.70rem;
             color: var(--gold);
             margin-top: 3px;
         }
@@ -170,10 +171,10 @@
         .download-btn {
             background: var(--gold);
             color: #000;
-            padding: 8px 15px;
+            padding: 8px 12px;
             border-radius: 5px;
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.80rem;
             font-weight: bold;
             transition: 0.3s;
         }
@@ -200,7 +201,7 @@
         </div>
 
         <h2>الناصري للتقنية</h2>
-        <p class="famous-quote">كن من تكون لاتهمني</p>
+        <p class="famous-quote">( كن من تكون لاتهمني )</p>
         <p class="tagline">DEVELOPER & DESIGNER | EXCLUSIVE PROJECTS</p>
         
         <hr class="hr-gold">
@@ -213,10 +214,18 @@
 
         <div class="app-card">
             <div class="app-info">
-                <h3>فيروسات الناصري</h3>
-                <span>إصدار V1.0 حصري</span>
+                <h3>تطبيق فيروسات الناصري</h3>
+                <span>اصدار v1.0</span>
             </div>
-            <a href="☠️فيروسات..الأناصري..1.0_✔️.apk" download class="download-btn">تحميل APK</a>
+            <a href="w✓_1.0.apk" download class="download-btn">تحميل APK</a>
+        </div>
+
+        <div class="app-card" style="border-right-color: var(--blue-neon);">
+            <div class="app-info">
+                <h3>تطبيق تعلم مجال الواتس</h3>
+                <span>برعاية الناصري</span>
+            </div>
+            <a href="تعلم كل مجال الواتس برعايه الناصري_1.0 (1).apk" download class="download-btn" style="background: var(--blue-neon);">تحميل APK</a>
         </div>
 
     </div>

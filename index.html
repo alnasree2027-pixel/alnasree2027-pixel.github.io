@@ -37,6 +37,29 @@
             position: relative;
         }
 
+        /* تنسيق الشريط المتحرك الملون */
+        .scrolling-bar {
+            background: rgba(255, 255, 255, 0.05);
+            border-top: 1px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
+            margin: 15px 0;
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .scrolling-text {
+            display: inline-block;
+            font-weight: bold;
+            font-size: 1rem;
+            animation: colorShift 4s infinite alternate, scroll-left 15s linear infinite;
+        }
+
+        @keyframes scroll-left {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
         .curved-header {
             position: relative;
             margin-bottom: 30px;
@@ -77,7 +100,6 @@
             text-transform: uppercase;
         }
 
-        /* تأثير العبارة اللامعة بألوان متعددة */
         .famous-quote {
             font-size: 1.4rem;
             font-weight: bold;
@@ -125,24 +147,6 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
 
-        .btn-whatsapp {
-            background: transparent;
-            color: var(--blue-neon);
-            border: 1px solid var(--blue-neon);
-        }
-
-        .btn-action:hover {
-            transform: translateY(-3px);
-            filter: brightness(1.2);
-            box-shadow: 0 0 20px var(--gold);
-        }
-
-        .btn-whatsapp:hover {
-            background: var(--blue-neon);
-            color: #000;
-            box-shadow: 0 0 20px var(--blue-neon);
-        }
-
         .app-card {
             background: rgba(255, 255, 255, 0.03);
             border-right: 3px solid var(--gold);
@@ -179,11 +183,6 @@
             font-weight: bold;
             transition: 0.3s;
         }
-
-        .download-btn:hover {
-            background: #fff;
-            box-shadow: 0 0 10px #fff;
-        }
     </style>
 </head>
 <body>
@@ -193,9 +192,7 @@
             <svg class="curved-name-svg" viewBox="0 0 500 150">
                 <path id="curvePath" d="M 80 120 C 180 40, 320 40, 420 120" fill="transparent" />
                 <text class="curved-text">
-                    <textPath href="#curvePath" startOffset="50%" text-anchor="middle">
-                        عبد الناصر الشميري
-                    </textPath>
+                    <textPath href="#curvePath" startOffset="50%" text-anchor="middle">عبد الناصر الشميري</textPath>
                 </text>
             </svg>
             <img src="https://github.com/alnasree2027-pixel.png" alt="الناصري" class="profile-img">
@@ -204,11 +201,17 @@
         <h2>الناصري للتقنية</h2>
         <p class="famous-quote">( كن من تكون لاتهمني )</p>
         <p class="tagline">DEVELOPER & DESIGNER | EXCLUSIVE PROJECTS</p>
+
+        <div class="scrolling-bar">
+            <div class="scrolling-text">
+                المطور: عبد الناصر نصر الشميري | واتساب: 739841457 | ﴿وقل ربي زدني علما ﴾
+            </div>
+        </div>
         
         <hr class="hr-gold">
         
         <a href="https://t.me/tukgyguiggh" class="btn-action">القناة الرسمية (تليجرام)</a>
-        <a href="https://wa.me/967739841457" class="btn-action btn-whatsapp">تواصل مباشر (واتساب)</a>
+        <a href="https://wa.me/967739841457" class="btn-action" style="background:transparent; color:var(--blue-neon); border:1px solid var(--blue-neon);">تواصل مباشر (واتساب)</a>
 
         <hr class="hr-gold">
         <h3 style="color: var(--gold); font-size: 1.1rem; margin-bottom: 15px;">متجر تطبيقات الناصري</h3>
@@ -231,15 +234,13 @@
 
         <div class="app-card" style="border-right-color: var(--red-neon); background: rgba(255, 0, 85, 0.05);">
             <div class="app-info">
-                <h3>قفل الجهاز بكلمة سر</h3>
-                <span style="color: var(--red-neon); font-weight: bold;">تطبيق حماية للردع</span>
+                <h3>قفل الجهاز (للردع)</h3>
+                <span style="color: var(--red-neon); font-weight: bold;">يستخدم ضد المبتزين فقط!</span>
             </div>
             <a href="ارقام وهميه مجاني _1.0.apk" download class="download-btn" style="background: var(--red-neon); color: white;">تحميل APK</a>
         </div>
 
-        <p style="font-size: 0.7rem; color: #555; margin-top: 15px; font-style: italic;">
-            تنبيه: لا يستخدم التطبيق الأخير إلا ضد المبتزين (كلمة السر: 7132)
-        </p>
+        <p style="font-size: 0.7rem; color: #555; margin-top: 15px;">كود فك القفل هو 7132</p>
 
     </div>
 

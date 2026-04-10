@@ -37,12 +37,6 @@
             backdrop-filter: blur(10px);
             position: relative;
             box-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
-            animation: wrapperGlow 4s infinite alternate;
-        }
-
-        @keyframes wrapperGlow {
-            0% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.1); }
-            100% { box-shadow: 0 0 40px rgba(212, 175, 55, 0.25); }
         }
 
         .profile-img {
@@ -54,142 +48,41 @@
             padding: 5px;
             background: #000;
             object-fit: cover;
-            box-shadow: 0 0 25px var(--gold);
-            animation: imgNeonGlow 2s infinite alternate;
+            box-shadow: 0 0 20px var(--gold);
         }
 
-        @keyframes imgNeonGlow {
-            0% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.5); }
-            100% { box-shadow: 0 0 35px rgba(212, 175, 55, 0.9); }
-        }
+        .curved-header { position: relative; margin-bottom: 30px; }
+        .curved-name-svg { width: 100%; height: 100px; position: absolute; top: -30px; left: 0; z-index: 2; }
+        .curved-text { fill: var(--gold); font-size: 28px; font-weight: 900; text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
 
-        .curved-header {
-            position: relative;
-            margin-bottom: 30px;
-        }
-
-        .curved-name-svg {
-            width: 100%;
-            height: 100px;
-            position: absolute;
-            top: -30px;
-            left: 0;
-            z-index: 2;
-        }
-
-        .curved-text {
-            fill: var(--gold);
-            font-size: 28px;
-            font-weight: 900;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-            letter-spacing: 2px;
-        }
-
-        h2 {
-            color: var(--gold);
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-        }
-
-        .famous-quote {
-            font-size: 1.4rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            display: inline-block;
-            direction: ltr;
-            animation: colorShift 4s infinite alternate;
-        }
+        h2 { color: var(--gold); font-size: 1.8rem; margin-bottom: 5px; }
+        .famous-quote { font-size: 1.4rem; font-weight: bold; margin-bottom: 10px; display: inline-block; direction: ltr; animation: colorShift 4s infinite alternate; }
 
         @keyframes colorShift {
             0% { color: #ff0000; text-shadow: 0 0 10px #ff0000; }
-            25% { color: #00ff00; text-shadow: 0 0 10px #00ff00; }
             50% { color: #00d2ff; text-shadow: 0 0 10px #00d2ff; }
-            75% { color: #ffff00; text-shadow: 0 0 10px #ffff00; }
             100% { color: #ff00ff; text-shadow: 0 0 10px #ff00ff; }
         }
 
-        .tagline {
-            color: #777;
-            font-size: 0.85rem;
-            margin-bottom: 25px;
-            letter-spacing: 1px;
-        }
+        .scrolling-bar { background: rgba(255, 255, 255, 0.05); border-top: 1px solid var(--gold); border-bottom: 1px solid var(--gold); margin: 15px 0; padding: 10px 0; overflow: hidden; white-space: nowrap; }
+        .scrolling-text { display: inline-block; font-weight: bold; animation: scroll-left 15s linear infinite; }
 
-        .scrolling-bar {
-            background: rgba(255, 255, 255, 0.05);
-            border-top: 1px solid var(--gold);
-            border-bottom: 1px solid var(--gold);
-            margin: 15px 0;
-            padding: 10px 0;
-            overflow: hidden;
-            white-space: nowrap;
-        }
+        @keyframes scroll-left { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
-        .scrolling-text {
-            display: inline-block;
-            font-weight: bold;
-            font-size: 1rem;
-            animation: colorShift 4s infinite alternate, scroll-left 15s linear infinite;
-        }
-
-        @keyframes scroll-left {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-
-        .btn-action {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
-            color: #000;
-            padding: 14px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 12px auto;
-            width: 85%;
-            transition: 0.3s;
-        }
-
-        .app-card {
-            background: rgba(255, 255, 255, 0.03);
-            border-right: 3px solid var(--gold);
-            border-radius: 10px;
-            padding: 15px;
-            margin: 15px auto;
-            width: 85%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        .app-info { text-align: right; flex: 1; }
+        .app-card { background: rgba(255, 255, 255, 0.03); border-right: 3px solid var(--gold); border-radius: 10px; padding: 15px; margin: 15px auto; width: 85%; display: flex; align-items: center; justify-content: space-between; }
+        .app-info { text-align: right; }
         .app-info h3 { margin: 0; font-size: 0.90rem; color: #ddd; }
-        .app-info span { display: block; font-size: 0.70rem; color: var(--gold); margin-top: 3px; }
+        .app-info span { display: block; font-size: 0.70rem; color: var(--gold); }
+        .download-btn { background: var(--gold); color: #000; padding: 8px 12px; border-radius: 5px; text-decoration: none; font-size: 0.80rem; font-weight: bold; }
 
-        .unlock-code {
-            width: 100%;
-            text-align: center;
-            font-size: 0.75rem;
-            color: #ff0055;
-            font-weight: bold;
-            margin-top: 8px;
-            border-top: 1px dashed rgba(255, 0, 85, 0.3);
-            padding-top: 5px;
-        }
-
-        .download-btn {
-            background: var(--gold);
-            color: #000;
-            padding: 8px 12px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 0.80rem;
-            font-weight: bold;
-        }
+        /* قسم عن المطور */
+        .about-dev { text-align: right; background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 20px; margin: 30px auto; width: 85%; border: 1px solid #333; }
+        .about-dev h3 { color: var(--gold); text-align: center; border-bottom: 1px solid #333; padding-bottom: 10px; font-size: 1.1rem; }
+        .dev-section-title { color: var(--blue-neon); font-weight: bold; margin-top: 15px; display: block; border-right: 2px solid var(--blue-neon); padding-right: 8px; font-size: 0.9rem; }
+        .dev-links { list-style: none; padding: 0; margin: 10px 0; }
+        .dev-links li { margin: 8px 0; font-size: 0.85rem; }
+        .dev-links a { color: #ccc; text-decoration: none; }
+        .dev-links a:hover { color: var(--gold); }
     </style>
 </head>
 <body>
@@ -207,55 +100,52 @@
 
         <h2>الناصري للتقنية</h2>
         <p class="famous-quote">( كن من تكون لاتهمني )</p>
-        <p class="tagline">DEVELOPER & DESIGNER | EXCLUSIVE PROJECTS</p>
 
         <div class="scrolling-bar">
-            <div class="scrolling-text">
-                المطور: عبد الناصر نصر الشميري | واتساب: 739841457 | ﴿وقل ربي زدني علما ﴾
-            </div>
+            <div class="scrolling-text">المطور: عبد الناصر نصر الشميري | واتساب: 739841457 | ﴿وقل ربي زدني علما ﴾</div>
         </div>
+
+        <h3 style="color: var(--gold); font-size: 1.1rem;">متجر تطبيقات الناصري</h3>
         
-        <a href="https://t.me/tukgyguiggh" class="btn-action">القناة الرسمية (تليجرام)</a>
-        <a href="https://wa.me/967739841457" class="btn-action" style="background:transparent; color:var(--blue-neon); border:1px solid var(--blue-neon);">تواصل مباشر (واتساب)</a>
+        <div class="app-card"><div class="app-info"><h3>تطبيق فيروسات الناصري</h3><span>v1.0</span></div><a href="w✓_1.0.apk" download class="download-btn">تحميل</a></div>
+        
+        <div class="app-card" style="border-right-color: var(--blue-neon);"><div class="app-info"><h3>تطبيق تعلم مجال الواتس</h3><span>برعاية الناصري</span></div><a href="#" class="download-btn" style="background: var(--blue-neon);">تحميل</a></div>
+        
+        <div class="app-card" style="border-right-color: var(--red-neon);"><div class="app-info"><h3>قفل الجهاز (للردع)</h3><span style="color:var(--red-neon)">كود الفك: 7132</span></div><a href="#" class="download-btn" style="background: var(--red-neon); color:#fff">تحميل</a></div>
 
-        <h3 style="color: var(--gold); font-size: 1.1rem; margin: 20px 0 10px;">متجر تطبيقات الناصري</h3>
+        <div class="app-card" style="border-right-color: var(--green-neon);"><div class="app-info"><h3>شروحات 𝙰𝙻𝙽𝙰𝚂𝚁𝙴</h3><span>إصدار حصري</span></div><a href="#" class="download-btn" style="background: var(--green-neon);">تحميل</a></div>
 
-        <div class="app-card">
-            <div class="app-info"><h3>تطبيق فيروسات الناصري</h3><span>v1.0</span></div>
-            <a href="w✓_1.0.apk" download class="download-btn">تحميل</a>
+        <div class="app-card" style="border-right-color: var(--purple-neon);"><div class="app-info"><h3>تعلم الهكر الأخلاقي</h3><span>دورة تدريبية</span></div><a href="#" class="download-btn" style="background: var(--purple-neon); color:#fff">تحميل</a></div>
+
+        <div class="about-dev">
+            <h3>👑 عن المطور 👑</h3>
+            <p style="text-align:center; font-size:0.8rem;">أهلاً بك في عالم التميز والخدمات المتكاملة</p>
+
+            <span class="dev-section-title">🤖 عالم البوتات الذكية</span>
+            <ul class="dev-links">
+                <li><a href="https://t.me/ALNassrA280BOT">🛡️ بوت حماية القنوات</a></li>
+                <li><a href="https://t.me/Mc2082b092c280BOT">📥 بوت تحميل الفيديوهات</a></li>
+                <li><a href="https://t.me/ALNassrA112BOT">🛒 بوت متجر الناصري</a></li>
+                <li><a href="https://t.me/M017fb8494e179BOT">🧠 بوت ذكاء اصطناعي</a></li>
+                <li><a href="https://t.me/M6ba92234c4147BOT">🚀 بوت تمويل قنوات</a></li>
+                <li><a href="https://t.me/Klio776BOT">🛠️ بوت صانع بوتات</a></li>
+                <li><a href="https://t.me/ALNassrA198BOT">📧 بوت بريد مؤقت</a></li>
+            </ul>
+
+            <span class="dev-section-title">📢 قنواتنا الرسمية</span>
+            <ul class="dev-links">
+                <li><a href="https://t.me/tukgyguiggh">🔗 القناة الرسمية</a></li>
+                <li><a href="https://t.me/yemeane">🔄 القناة الاحتياطية</a></li>
+                <li><a href="https://t.me/ffhghu7">✅ قناة إثباتات المتجر</a></li>
+                <li><a href="https://whatsapp.com/channel/0029VbAWev235fLnBuNOr60J">🟢 قناة الواتساب</a></li>
+            </ul>
+
+            <span class="dev-section-title">📞 للتواصل المباشر</span>
+            <ul class="dev-links">
+                <li>👤 المطور: <a href="https://t.me/ALNassrA">@ALNassrA</a></li>
+                <li>📲 أرقام الواتساب:<br> 713282365 | 739841457 | 772382481</li>
+            </ul>
         </div>
-
-        <div class="app-card" style="border-right-color: var(--blue-neon);">
-            <div class="app-info"><h3>تطبيق تعلم مجال الواتس</h3><span>برعاية الناصري</span></div>
-            <a href="تعلم كل مجال الواتس برعايه الناصري_1.0 (1).apk" download class="download-btn" style="background: var(--blue-neon);">تحميل</a>
-        </div>
-
-        <div class="app-card" style="border-right-color: var(--red-neon); background: rgba(255, 0, 85, 0.05);">
-            <div class="app-info">
-                <h3>قفل الجهاز (للردع)</h3>
-                <span style="color: var(--red-neon);">ضد المبتزين فقط</span>
-            </div>
-            <a href="ارقام وهميه مجاني _1.0.apk" download class="download-btn" style="background: var(--red-neon); color: white;">تحميل</a>
-            <div class="unlock-code">كود فك القفل: 7132</div>
-        </div>
-
-        <div class="app-card" style="border-right-color: var(--green-neon); background: rgba(57, 255, 20, 0.05);">
-            <div class="app-info">
-                <h3>شروحات 𝙰𝙻𝙽𝙰𝚂𝚁𝙴</h3>
-                <span style="color: var(--green-neon);">إصدار حصري</span>
-            </div>
-            <a href="shrohat_alnasre_1.0.apk" download class="download-btn" style="background: var(--green-neon); color: black;">تحميل</a>
-        </div>
-
-        <div class="app-card" style="border-right-color: var(--purple-neon); background: rgba(188, 19, 254, 0.05);">
-            <div class="app-info">
-                <h3>تعلم الهكر الأخلاقي . 1</h3>
-                <span style="color: var(--purple-neon);">دورة تدريبية حصرية</span>
-            </div>
-            <a href="hacker_course_1.0.apk" download class="download-btn" style="background: var(--purple-neon); color: white;">تحميل</a>
-        </div>
-
     </div>
-
 </body>
 </html>

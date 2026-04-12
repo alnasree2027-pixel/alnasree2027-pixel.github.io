@@ -12,7 +12,6 @@
             --red-neon: #ff0055;
             --green-neon: #39ff14;
             --purple-neon: #bc13fe;
-            --termux-green: rgba(57, 255, 20, 0.2); /* لون أخضر ترمكس شفاف */
         }
 
         body {
@@ -26,57 +25,7 @@
             overflow-x: hidden;
         }
 
-        /* --- تعديل منطقة الشعار وتأثير الترمكس --- */
-        .logo-container {
-            position: relative;
-            width: 140px;
-            height: 140px;
-            margin: 0 auto;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 2px solid var(--gold);
-            box-shadow: 0 0 20px var(--gold);
-            background: #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .termux-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 8px;
-            color: var(--termux-green);
-            line-height: 10px;
-            text-align: left;
-            user-select: none;
-            z-index: 1;
-            animation: scroll-termux 8s linear infinite;
-            white-space: pre-wrap;
-            word-break: break-all;
-            padding: 5px;
-        }
-
-        @keyframes scroll-termux {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-50%); }
-        }
-
-        .profile-img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            z-index: 2; /* فوق نص الترمكس */
-            position: relative;
-            object-fit: cover;
-            filter: drop-shadow(0 0 5px #000);
-        }
-        /* --- نهاية تعديل الشعار --- */
-
+        /* حاوية القائمة مع إطار متحرك */
         .main-wrapper {
             margin: 50px auto;
             padding: 40px 20px;
@@ -89,6 +38,7 @@
             overflow: hidden;
         }
 
+        /* تأثير الخطوط الملونة المتحركة على الحواف */
         .main-wrapper::before {
             content: '';
             position: absolute;
@@ -116,6 +66,56 @@
             100% { transform: rotate(360deg); }
         }
 
+        /* --- تصميم الشعار مع خلفية الترمكس --- */
+        .logo-box {
+            position: relative;
+            width: 130px;
+            height: 130px;
+            margin: 0 auto;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--gold);
+            box-shadow: 0 0 20px var(--gold);
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .termux-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--green-neon);
+            opacity: 0.5;
+            text-shadow: 0 0 5px var(--green-neon);
+            white-space: pre;
+            line-height: 14px;
+            z-index: 1;
+            animation: matrixScroll 4s linear infinite;
+            text-align: center;
+            padding-top: 5px;
+        }
+
+        @keyframes matrixScroll {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50%); }
+        }
+
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            z-index: 2;
+            position: relative;
+            object-fit: cover;
+        }
+
         .curved-header { position: relative; margin-bottom: 30px; }
         .curved-name-svg { width: 100%; height: 100px; position: absolute; top: -30px; left: 0; z-index: 3; }
         .curved-text { fill: var(--gold); font-size: 28px; font-weight: 900; text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
@@ -125,9 +125,28 @@
             0% { color: #ff0000; } 50% { color: #00d2ff; } 100% { color: #ff00ff; }
         }
 
-        .scrolling-bar { background: rgba(255, 255, 255, 0.05); border-top: 1px solid var(--gold); border-bottom: 1px solid var(--gold); margin: 15px 0; padding: 10px 0; overflow: hidden; white-space: nowrap; }
-        .scrolling-text { display: inline-block; font-weight: bold; animation: scroll-left 15s linear infinite; }
+        /* --- إصلاح الشريط المتحرك بالألوان --- */
+        .scrolling-bar { 
+            background: rgba(255, 255, 255, 0.05); 
+            border-top: 1px solid var(--gold); 
+            border-bottom: 1px solid var(--gold); 
+            margin: 15px 0; 
+            padding: 10px 0; 
+            overflow: hidden; 
+            white-space: nowrap; 
+        }
+        .scrolling-text { 
+            display: inline-block; 
+            font-weight: bold; 
+            animation: scroll-left 15s linear infinite, textNeon 4s infinite alternate; 
+        }
         @keyframes scroll-left { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+        @keyframes textNeon {
+            0% { color: var(--blue-neon); }
+            33% { color: var(--green-neon); }
+            66% { color: var(--red-neon); }
+            100% { color: var(--purple-neon); }
+        }
 
         .app-card { background: rgba(255, 255, 255, 0.03); border-right: 3px solid var(--gold); border-radius: 10px; padding: 15px; margin: 15px auto; width: 85%; display: flex; align-items: center; justify-content: space-between; }
         .app-info { text-align: right; }
@@ -155,17 +174,17 @@
                 </text>
             </svg>
             
-            <div class="logo-container">
-                <div class="termux-bg">
-ALNASRE ALNASRE ALNASRE
-ALNASRE ALNASRE ALNASRE
-ALNASRE ALNASRE ALNASRE
-ALNASRE ALNASRE ALNASRE
-ALNASRE ALNASRE ALNASRE
-ALNASRE ALNASRE ALNASRE
-ALNASRE ALNASRE ALNASRE
-ALNASRE ALNASRE ALNASRE
-ALNASRE ALNASRE ALNASRE
+            <div class="logo-box">
+                <div class="termux-layer">
+ALNASRE
+ALNASRE
+ALNASRE
+ALNASRE
+ALNASRE
+ALNASRE
+ALNASRE
+ALNASRE
+ALNASRE
                 </div>
                 <img src="https://github.com/alnasree2027-pixel.png" alt="الناصري" class="profile-img">
             </div>

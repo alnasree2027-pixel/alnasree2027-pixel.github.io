@@ -25,7 +25,6 @@
             overflow-x: hidden;
         }
 
-        /* حاوية القائمة مع إطار متحرك */
         .main-wrapper {
             margin: 50px auto;
             padding: 40px 20px;
@@ -36,9 +35,9 @@
             backdrop-filter: blur(10px);
             position: relative;
             overflow: hidden;
+            z-index: 1;
         }
 
-        /* تأثير الخطوط الملونة المتحركة على الحواف */
         .main-wrapper::before {
             content: '';
             position: absolute;
@@ -46,9 +45,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: conic-gradient(
-                transparent, var(--blue-neon), var(--purple-neon), var(--red-neon), var(--green-neon), transparent
-            );
+            background: conic-gradient(transparent, var(--blue-neon), var(--purple-neon), var(--red-neon), var(--green-neon), transparent);
             animation: rotateBorder 4s linear infinite;
             z-index: -2;
         }
@@ -62,84 +59,57 @@
             z-index: -1;
         }
 
-        @keyframes rotateBorder {
-            100% { transform: rotate(360deg); }
-        }
+        @keyframes rotateBorder { 100% { transform: rotate(360deg); } }
 
-        /* --- تصميم الشعار مع خلفية الترمكس --- */
-        .logo-box {
-            position: relative;
-            width: 130px;
-            height: 130px;
-            margin: 0 auto;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 2px solid var(--gold);
-            box-shadow: 0 0 20px var(--gold);
-            background: #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .termux-layer {
+        /* --- تأثير خلفية الترمكس الكبيرة خلف النصوص --- */
+        .termux-full-bg {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
+            height: 40%; /* تغطي المنطقة العلوية خلف النصوص */
             font-family: 'Courier New', Courier, monospace;
-            font-size: 12px;
-            font-weight: bold;
+            font-size: 25px; /* خط كبير */
+            font-weight: 900;
             color: var(--green-neon);
-            opacity: 0.5;
-            text-shadow: 0 0 5px var(--green-neon);
-            white-space: pre;
-            line-height: 14px;
-            z-index: 1;
-            animation: matrixScroll 4s linear infinite;
-            text-align: center;
-            padding-top: 5px;
+            opacity: 0.15; /* شفافة لكي لا تغطي على الكلام الأصلي */
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+            line-height: 30px;
+            text-shadow: 0 0 8px var(--green-neon);
+            animation: moveUp 10s linear infinite;
         }
 
-        @keyframes matrixScroll {
+        @keyframes moveUp {
             0% { transform: translateY(0); }
-            100% { transform: translateY(-50%); }
+            100% { transform: translateY(-30%); }
         }
 
+        /* --- الشعار --- */
         .profile-img {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            z-index: 2;
-            position: relative;
+            border: 2px solid var(--gold);
+            padding: 5px;
+            background: #000;
             object-fit: cover;
+            box-shadow: 0 0 20px var(--gold);
+            position: relative;
+            z-index: 5;
         }
 
-        .curved-header { position: relative; margin-bottom: 30px; }
-        .curved-name-svg { width: 100%; height: 100px; position: absolute; top: -30px; left: 0; z-index: 3; }
+        .curved-header { position: relative; margin-bottom: 30px; z-index: 5; }
+        .curved-name-svg { width: 100%; height: 100px; position: absolute; top: -30px; left: 0; z-index: 6; }
         .curved-text { fill: var(--gold); font-size: 28px; font-weight: 900; text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
 
-        .famous-quote { font-size: 1.4rem; font-weight: bold; margin-bottom: 10px; display: inline-block; direction: ltr; animation: colorShift 4s infinite alternate; }
-        @keyframes colorShift {
-            0% { color: #ff0000; } 50% { color: #00d2ff; } 100% { color: #ff00ff; }
-        }
+        .famous-quote { font-size: 1.4rem; font-weight: bold; margin-bottom: 10px; display: inline-block; direction: ltr; animation: colorShift 4s infinite alternate; position: relative; z-index: 5; }
+        @keyframes colorShift { 0% { color: #ff0000; } 50% { color: #00d2ff; } 100% { color: #ff00ff; } }
 
-        /* --- إصلاح الشريط المتحرك بالألوان --- */
-        .scrolling-bar { 
-            background: rgba(255, 255, 255, 0.05); 
-            border-top: 1px solid var(--gold); 
-            border-bottom: 1px solid var(--gold); 
-            margin: 15px 0; 
-            padding: 10px 0; 
-            overflow: hidden; 
-            white-space: nowrap; 
-        }
-        .scrolling-text { 
-            display: inline-block; 
-            font-weight: bold; 
-            animation: scroll-left 15s linear infinite, textNeon 4s infinite alternate; 
-        }
+        /* --- الشريط المتحرك الملون --- */
+        .scrolling-bar { background: rgba(255, 255, 255, 0.05); border-top: 1px solid var(--gold); border-bottom: 1px solid var(--gold); margin: 15px 0; padding: 10px 0; overflow: hidden; white-space: nowrap; position: relative; z-index: 5; }
+        .scrolling-text { display: inline-block; font-weight: bold; animation: scroll-left 15s linear infinite, textNeon 4s infinite alternate; }
         @keyframes scroll-left { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
         @keyframes textNeon {
             0% { color: var(--blue-neon); }
@@ -148,12 +118,12 @@
             100% { color: var(--purple-neon); }
         }
 
-        .app-card { background: rgba(255, 255, 255, 0.03); border-right: 3px solid var(--gold); border-radius: 10px; padding: 15px; margin: 15px auto; width: 85%; display: flex; align-items: center; justify-content: space-between; }
+        .app-card { background: rgba(255, 255, 255, 0.03); border-right: 3px solid var(--gold); border-radius: 10px; padding: 15px; margin: 15px auto; width: 85%; display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 5; }
         .app-info { text-align: right; }
         .app-info h3 { margin: 0; font-size: 0.85rem; color: #ddd; }
         .download-btn { background: var(--gold); color: #000; padding: 8px 12px; border-radius: 5px; text-decoration: none; font-size: 0.75rem; font-weight: bold; }
 
-        .about-dev { text-align: right; background: rgba(255, 255, 255, 0.02); border-radius: 15px; padding: 15px; margin: 20px auto; width: 85%; border: 1px solid #222; }
+        .about-dev { text-align: right; background: rgba(255, 255, 255, 0.02); border-radius: 15px; padding: 15px; margin: 20px auto; width: 85%; border: 1px solid #222; position: relative; z-index: 5; }
         .about-dev h3 { color: var(--gold); text-align: center; border-bottom: 1px solid #333; padding-bottom: 5px; font-size: 1rem; }
         .dev-section-title { color: var(--blue-neon); font-weight: bold; margin-top: 12px; display: block; font-size: 0.85rem; }
         .dev-links { list-style: none; padding: 0; margin: 5px 0; }
@@ -166,6 +136,17 @@
 <body>
 
     <div class="main-wrapper">
+        <div class="termux-full-bg">
+            ALNASRE ALNASRE ALNASRE ALNASRE
+            ALNASRE ALNASRE ALNASRE ALNASRE
+            ALNASRE ALNASRE ALNASRE ALNASRE
+            ALNASRE ALNASRE ALNASRE ALNASRE
+            ALNASRE ALNASRE ALNASRE ALNASRE
+            ALNASRE ALNASRE ALNASRE ALNASRE
+            ALNASRE ALNASRE ALNASRE ALNASRE
+            ALNASRE ALNASRE ALNASRE ALNASRE
+        </div>
+
         <div class="curved-header">
             <svg class="curved-name-svg" viewBox="0 0 500 150">
                 <path id="curvePath" d="M 80 120 C 180 40, 320 40, 420 120" fill="transparent" />
@@ -173,31 +154,17 @@
                     <textPath href="#curvePath" startOffset="50%" text-anchor="middle">عبد الناصر الشميري</textPath>
                 </text>
             </svg>
-            
-            <div class="logo-box">
-                <div class="termux-layer">
-ALNASRE
-ALNASRE
-ALNASRE
-ALNASRE
-ALNASRE
-ALNASRE
-ALNASRE
-ALNASRE
-ALNASRE
-                </div>
-                <img src="https://github.com/alnasree2027-pixel.png" alt="الناصري" class="profile-img">
-            </div>
+            <img src="https://github.com/alnasree2027-pixel.png" alt="الناصري" class="profile-img">
         </div>
 
-        <h2 style="color:var(--gold)">الناصري للتقنية</h2>
+        <h2 style="color:var(--gold); position:relative; z-index:5;">الناصري للتقنية</h2>
         <p class="famous-quote">( كن من تكون لاتهمني )</p>
 
         <div class="scrolling-bar">
             <div class="scrolling-text">المطور: عبد الناصر نصر الشميري | ﴿وقل ربي زدني علما ﴾ | ترقبوا كل جديد</div>
         </div>
 
-        <h3 style="color: var(--gold); font-size: 1rem;">متجر تطبيقات الناصري</h3>
+        <h3 style="color: var(--gold); font-size: 1rem; position:relative; z-index:5;">متجر تطبيقات الناصري</h3>
         
         <div class="app-card"><div class="app-info"><h3>تطبيق فيروسات الناصري</h3></div><a href="#" class="download-btn">تحميل</a></div>
         <div class="app-card" style="border-right-color: var(--blue-neon);"><div class="app-info"><h3>تطبيق تعلم مجال الواتس</h3></div><a href="#" class="download-btn" style="background: var(--blue-neon);">تحميل</a></div>

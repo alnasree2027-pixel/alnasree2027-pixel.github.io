@@ -63,12 +63,12 @@
 
         @keyframes rotateBorder { 100% { transform: rotate(360deg); } }
 
-        /* --- عبارات الذكر المحدثة --- */
+        /* --- عبارات الذكر المضيئة --- */
         .dhikr-container {
             margin: 10px 0 25px 0;
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
             flex-wrap: wrap;
             position: relative;
             z-index: 5;
@@ -76,8 +76,8 @@
 
         .dhikr-item {
             font-weight: 900;
-            font-size: 0.85rem;
-            padding: 6px 12px;
+            font-size: 0.75rem;
+            padding: 5px 10px;
             border-radius: 50px;
             border: 1px solid currentColor;
             background: rgba(0,0,0,0.6);
@@ -144,11 +144,12 @@
         .download-btn { background: var(--gold); color: #000; padding: 8px 15px; border-radius: 8px; text-decoration: none; font-size: 0.8rem; font-weight: bold; }
 
         .about-dev { text-align: right; background: rgba(255, 255, 255, 0.02); border-radius: 20px; padding: 20px; margin: 25px auto; width: 85%; border: 1px solid #333; position: relative; z-index: 5; }
-        .about-dev h3 { color: var(--gold); text-align: center; border-bottom: 1px solid #444; padding-bottom: 10px; }
+        .about-dev h3 { color: var(--gold); text-align: center; border-bottom: 1px solid #444; padding-bottom: 10px; margin-bottom: 15px; }
         .dev-section-title { color: var(--blue-neon); font-weight: bold; margin-top: 15px; display: block; font-size: 0.9rem; }
         .dev-links { list-style: none; padding: 0; margin: 10px 0; }
         .dev-links li { margin: 8px 0; font-size: 0.85rem; }
         .dev-links a { color: #ccc; text-decoration: none; }
+        .dev-links a:hover { color: var(--gold); padding-right: 5px; }
         .wa-link { color: var(--green-neon) !important; font-weight: bold; }
     </style>
 </head>
@@ -191,22 +192,31 @@
         <div class="app-card" style="border-right-color: var(--red-neon);"><div class="app-info"><h3>قفل الجهاز (للردع)</h3><span style="color:var(--red-neon); font-size:0.7rem">الكود: 7132</span></div><a href="#" class="download-btn" style="background: var(--red-neon); color:#fff">تحميل</a></div>
         <div class="app-card" style="border-right-color: var(--green-neon);"><div class="app-info"><h3>شروحات 𝙰𝙻𝙽𝙰𝚂𝚁𝙴</h3></div><a href="#" class="download-btn" style="background: var(--green-neon);">تحميل</a></div>
         <div class="app-card" style="border-right-color: var(--purple-neon);"><div class="app-info"><h3>تعلم الهكر الأخلاقي</h3></div><a href="#" class="download-btn" style="background: var(--purple-neon); color:#fff">تحميل</a></div>
-        
-        <div class="app-card" style="border-right-color: var(--cyan-neon);">
-            <div class="app-info"><h3>تطبيق مجال ١</h3></div>
-            <a href="majal1.apk" class="download-btn" style="background: var(--cyan-neon); color: #000;">تحميل</a>
-        </div>
+        <div class="app-card" style="border-right-color: var(--cyan-neon);"><div class="app-info"><h3>تطبيق مجال ١</h3></div><a href="majal1.apk" class="download-btn" style="background: var(--cyan-neon); color: #000;">تحميل</a></div>
 
         <div class="about-dev">
             <h3>👑 عن المطور 👑</h3>
-            <span class="dev-section-title">🤖 عالم البوتات</span>
+            <span class="dev-section-title">🤖 عالم البوتات الذكية</span>
             <ul class="dev-links">
                 <li><a href="https://t.me/ALNassrA280BOT">🛡️ بوت حماية القنوات</a></li>
                 <li><a href="https://t.me/Mc2082b092c280BOT">📥 بوت تحميل الفيديوهات</a></li>
+                <li><a href="https://t.me/ALNassrA112BOT">🛒 بوت متجر الناصري</a></li>
+                <li><a href="https://t.me/M017fb8494e179BOT">🧠 بوت ذكاء اصطناعي (AI)</a></li>
             </ul>
-            <span class="dev-section-title">📞 تواصل</span>
+
+            <span class="dev-section-title">📢 قنواتنا الرسمية</span>
             <ul class="dev-links">
-                <li>📲 واتساب: <a class="wa-link" href="https://wa.me/967713282365">713282365</a></li>
+                <li><a href="https://t.me/tukgyguiggh">🔗 القناة الرسمية على تليجرام</a></li>
+                <li><a href="https://whatsapp.com/channel/0029VbAWev235fLnBuNOr60J">🟢 قناة الواتساب</a></li>
+            </ul>
+
+            <span class="dev-section-title">📞 للتواصل المباشر</span>
+            <ul class="dev-links">
+                <li>👤 المطور: <a href="https://t.me/ALNassrA">@ALNassrA</a></li>
+                <li>📲 للتواصل واتساب:<br> 
+                    <a class="wa-link" href="https://wa.me/967713282365">713282365</a> | 
+                    <a class="wa-link" href="https://wa.me/967739841457">739841457</a>
+                </li>
             </ul>
         </div>
     </div>

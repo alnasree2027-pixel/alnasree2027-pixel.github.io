@@ -63,7 +63,23 @@
 
         @keyframes rotateBorder { 100% { transform: rotate(360deg); } }
 
-        /* --- عبارات الذكر المضيئة --- */
+        /* --- عداد الزوار المضيء --- */
+        .visitor-counter {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--cyan-neon);
+            border-radius: 15px;
+            padding: 10px;
+            margin: 10px auto 20px;
+            width: fit-content;
+            color: var(--cyan-neon);
+            font-weight: bold;
+            font-size: 0.9rem;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+            position: relative;
+            z-index: 5;
+        }
+        #count { font-size: 1.2rem; color: #fff; text-shadow: 0 0 5px var(--cyan-neon); }
+
         .dhikr-container {
             margin: 10px 0 25px 0;
             display: flex;
@@ -149,7 +165,6 @@
         .dev-links { list-style: none; padding: 0; margin: 10px 0; }
         .dev-links li { margin: 8px 0; font-size: 0.85rem; }
         .dev-links a { color: #ccc; text-decoration: none; }
-        .dev-links a:hover { color: var(--gold); padding-right: 5px; }
         .wa-link { color: var(--green-neon) !important; font-weight: bold; }
     </style>
 </head>
@@ -166,6 +181,10 @@
             <span class="dhikr-item subhan">سبحان الله</span>
             <span class="dhikr-item astagfir">استغفر الله</span>
             <span class="dhikr-item akbar">الله أكبر</span>
+        </div>
+
+        <div class="visitor-counter">
+            👁️ عدد الزوار: <span id="count">...</span>
         </div>
 
         <div class="curved-header">
@@ -204,21 +223,23 @@
                 <li><a href="https://t.me/M017fb8494e179BOT">🧠 بوت ذكاء اصطناعي (AI)</a></li>
             </ul>
 
-            <span class="dev-section-title">📢 قنواتنا الرسمية</span>
-            <ul class="dev-links">
-                <li><a href="https://t.me/tukgyguiggh">🔗 القناة الرسمية على تليجرام</a></li>
-                <li><a href="https://whatsapp.com/channel/0029VbAWev235fLnBuNOr60J">🟢 قناة الواتساب</a></li>
-            </ul>
-
             <span class="dev-section-title">📞 للتواصل المباشر</span>
             <ul class="dev-links">
                 <li>👤 المطور: <a href="https://t.me/ALNassrA">@ALNassrA</a></li>
-                <li>📲 للتواصل واتساب:<br> 
+                <li>📲 واتساب:<br> 
                     <a class="wa-link" href="https://wa.me/967713282365">713282365</a> | 
                     <a class="wa-link" href="https://wa.me/967739841457">739841457</a>
                 </li>
             </ul>
         </div>
     </div>
+
+    <script>
+        function cb(response) {
+            document.getElementById('count').innerText = response.value;
+        }
+    </script>
+    <script async src="https://api.countapi.xyz/hit/alnasree2027-pixel.github.io/visits?callback=cb"></script>
+
 </body>
 </html>

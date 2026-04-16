@@ -12,6 +12,7 @@
             --red-neon: #ff0055;
             --green-neon: #39ff14;
             --purple-neon: #bc13fe;
+            --cyan-neon: #00ffff;
         }
 
         body {
@@ -61,23 +62,52 @@
 
         @keyframes rotateBorder { 100% { transform: rotate(360deg); } }
 
-        /* --- تأثير خلفية الترمكس الكبيرة خلف النصوص --- */
+        /* --- عبارات الذكر المضيئة --- */
+        .dhikr-container {
+            margin: 10px 0 25px 0;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 5;
+        }
+
+        .dhikr-item {
+            font-weight: 900;
+            font-size: 1rem;
+            padding: 5px 12px;
+            border-radius: 50px;
+            border: 1px solid currentColor;
+            background: rgba(0,0,0,0.5);
+            animation: pulse-neon 2s infinite alternate;
+        }
+
+        @keyframes pulse-neon {
+            0% { opacity: 0.7; transform: scale(0.95); box-shadow: 0 0 5px currentColor; }
+            100% { opacity: 1; transform: scale(1.05); box-shadow: 0 0 20px currentColor; text-shadow: 0 0 10px currentColor; }
+        }
+
+        .sali { color: var(--green-neon); }
+        .subhan { color: var(--blue-neon); }
+        .akbar { color: var(--red-neon); }
+
+        /* --- خلفية الترمكس --- */
         .termux-full-bg {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 40%; /* تغطي المنطقة العلوية خلف النصوص */
+            height: 40%;
             font-family: 'Courier New', Courier, monospace;
-            font-size: 25px; /* خط كبير */
+            font-size: 25px;
             font-weight: 900;
             color: var(--green-neon);
-            opacity: 0.15; /* شفافة لكي لا تغطي على الكلام الأصلي */
+            opacity: 0.1;
             z-index: 0;
             pointer-events: none;
             overflow: hidden;
             line-height: 30px;
-            text-shadow: 0 0 8px var(--green-neon);
             animation: moveUp 10s linear infinite;
         }
 
@@ -86,7 +116,6 @@
             100% { transform: translateY(-30%); }
         }
 
-        /* --- الشعار --- */
         .profile-img {
             width: 120px;
             height: 120px;
@@ -102,35 +131,29 @@
 
         .curved-header { position: relative; margin-bottom: 30px; z-index: 5; }
         .curved-name-svg { width: 100%; height: 100px; position: absolute; top: -30px; left: 0; z-index: 6; }
-        .curved-text { fill: var(--gold); font-size: 28px; font-weight: 900; text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
+        .curved-text { fill: var(--gold); font-size: 28px; font-weight: 900; }
 
         .famous-quote { font-size: 1.4rem; font-weight: bold; margin-bottom: 10px; display: inline-block; direction: ltr; animation: colorShift 4s infinite alternate; position: relative; z-index: 5; }
         @keyframes colorShift { 0% { color: #ff0000; } 50% { color: #00d2ff; } 100% { color: #ff00ff; } }
 
-        /* --- الشريط المتحرك الملون --- */
         .scrolling-bar { background: rgba(255, 255, 255, 0.05); border-top: 1px solid var(--gold); border-bottom: 1px solid var(--gold); margin: 15px 0; padding: 10px 0; overflow: hidden; white-space: nowrap; position: relative; z-index: 5; }
-        .scrolling-text { display: inline-block; font-weight: bold; animation: scroll-left 15s linear infinite, textNeon 4s infinite alternate; }
+        .scrolling-text { display: inline-block; font-weight: bold; animation: scroll-left 15s linear infinite; }
         @keyframes scroll-left { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
-        @keyframes textNeon {
-            0% { color: var(--blue-neon); }
-            33% { color: var(--green-neon); }
-            66% { color: var(--red-neon); }
-            100% { color: var(--purple-neon); }
-        }
 
-        .app-card { background: rgba(255, 255, 255, 0.03); border-right: 3px solid var(--gold); border-radius: 10px; padding: 15px; margin: 15px auto; width: 85%; display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 5; }
+        .app-card { background: rgba(255, 255, 255, 0.03); border-right: 4px solid var(--gold); border-radius: 12px; padding: 15px; margin: 15px auto; width: 85%; display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 5; transition: 0.3s; }
+        .app-card:hover { transform: translateX(-5px); background: rgba(255, 255, 255, 0.08); }
         .app-info { text-align: right; }
-        .app-info h3 { margin: 0; font-size: 0.85rem; color: #ddd; }
-        .download-btn { background: var(--gold); color: #000; padding: 8px 12px; border-radius: 5px; text-decoration: none; font-size: 0.75rem; font-weight: bold; }
+        .app-info h3 { margin: 0; font-size: 0.9rem; color: #fff; }
+        .download-btn { background: var(--gold); color: #000; padding: 8px 15px; border-radius: 8px; text-decoration: none; font-size: 0.8rem; font-weight: bold; box-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
 
-        .about-dev { text-align: right; background: rgba(255, 255, 255, 0.02); border-radius: 15px; padding: 15px; margin: 20px auto; width: 85%; border: 1px solid #222; position: relative; z-index: 5; }
-        .about-dev h3 { color: var(--gold); text-align: center; border-bottom: 1px solid #333; padding-bottom: 5px; font-size: 1rem; }
-        .dev-section-title { color: var(--blue-neon); font-weight: bold; margin-top: 12px; display: block; font-size: 0.85rem; }
-        .dev-links { list-style: none; padding: 0; margin: 5px 0; }
-        .dev-links li { margin: 5px 0; font-size: 0.8rem; }
-        .dev-links a { color: #ccc; text-decoration: none; }
-        .dev-links a:hover { color: var(--gold); }
-        .wa-link { color: var(--green-neon) !important; font-weight: bold; text-decoration: underline !important; }
+        .about-dev { text-align: right; background: rgba(255, 255, 255, 0.02); border-radius: 20px; padding: 20px; margin: 25px auto; width: 85%; border: 1px solid #333; position: relative; z-index: 5; }
+        .about-dev h3 { color: var(--gold); text-align: center; border-bottom: 1px solid #444; padding-bottom: 10px; margin-bottom: 15px; }
+        .dev-section-title { color: var(--blue-neon); font-weight: bold; margin-top: 15px; display: block; font-size: 0.9rem; }
+        .dev-links { list-style: none; padding: 0; margin: 10px 0; }
+        .dev-links li { margin: 8px 0; font-size: 0.85rem; }
+        .dev-links a { color: #ccc; text-decoration: none; transition: 0.2s; }
+        .dev-links a:hover { color: var(--gold); padding-right: 5px; }
+        .wa-link { color: var(--green-neon) !important; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -139,12 +162,12 @@
         <div class="termux-full-bg">
             ALNASRE ALNASRE ALNASRE ALNASRE
             ALNASRE ALNASRE ALNASRE ALNASRE
-            ALNASRE ALNASRE ALNASRE ALNASRE
-            ALNASRE ALNASRE ALNASRE ALNASRE
-            ALNASRE ALNASRE ALNASRE ALNASRE
-            ALNASRE ALNASRE ALNASRE ALNASRE
-            ALNASRE ALNASRE ALNASRE ALNASRE
-            ALNASRE ALNASRE ALNASRE ALNASRE
+        </div>
+
+        <div class="dhikr-container">
+            <span class="dhikr-item sali">صلي على محمد</span>
+            <span class="dhikr-item subhan">سبحان الله</span>
+            <span class="dhikr-item akbar">الله أكبر</span>
         </div>
 
         <div class="curved-header">
@@ -157,46 +180,40 @@
             <img src="https://github.com/alnasree2027-pixel.png" alt="الناصري" class="profile-img">
         </div>
 
-        <h2 style="color:var(--gold); position:relative; z-index:5;">الناصري للتقنية</h2>
+        <h2 style="color:var(--gold); position:relative; z-index:5; margin-top: 10px;">الناصري للتقنية</h2>
         <p class="famous-quote">( كن من تكون لاتهمني )</p>
 
         <div class="scrolling-bar">
             <div class="scrolling-text">المطور: عبد الناصر نصر الشميري | ﴿وقل ربي زدني علما ﴾ | ترقبوا كل جديد</div>
         </div>
 
-        <h3 style="color: var(--gold); font-size: 1rem; position:relative; z-index:5;">متجر تطبيقات الناصري</h3>
+        <h3 style="color: var(--gold); font-size: 1.1rem; position:relative; z-index:5; margin: 20px 0;">🚀 متجر تطبيقات الناصري</h3>
         
         <div class="app-card"><div class="app-info"><h3>تطبيق فيروسات الناصري</h3></div><a href="#" class="download-btn">تحميل</a></div>
         <div class="app-card" style="border-right-color: var(--blue-neon);"><div class="app-info"><h3>تطبيق تعلم مجال الواتس</h3></div><a href="#" class="download-btn" style="background: var(--blue-neon);">تحميل</a></div>
         <div class="app-card" style="border-right-color: var(--red-neon);"><div class="app-info"><h3>قفل الجهاز (للردع)</h3><span style="color:var(--red-neon); font-size:0.7rem">الكود: 7132</span></div><a href="#" class="download-btn" style="background: var(--red-neon); color:#fff">تحميل</a></div>
         <div class="app-card" style="border-right-color: var(--green-neon);"><div class="app-info"><h3>شروحات 𝙰𝙻𝙽𝙰𝚂𝚁𝙴</h3></div><a href="#" class="download-btn" style="background: var(--green-neon);">تحميل</a></div>
         <div class="app-card" style="border-right-color: var(--purple-neon);"><div class="app-info"><h3>تعلم الهكر الأخلاقي</h3></div><a href="#" class="download-btn" style="background: var(--purple-neon); color:#fff">تحميل</a></div>
+        
+        <div class="app-card" style="border-right-color: var(--cyan-neon);">
+            <div class="app-info"><h3>تطبيق مجال ١</h3></div>
+            <a href="#" class="download-btn" style="background: var(--cyan-neon); color: #000;">تحميل</a>
+        </div>
 
         <div class="about-dev">
             <h3>👑 عن المطور 👑</h3>
-            
             <span class="dev-section-title">🤖 عالم البوتات الذكية</span>
             <ul class="dev-links">
                 <li><a href="https://t.me/ALNassrA280BOT">🛡️ بوت حماية القنوات</a></li>
                 <li><a href="https://t.me/Mc2082b092c280BOT">📥 بوت تحميل الفيديوهات</a></li>
                 <li><a href="https://t.me/ALNassrA112BOT">🛒 بوت متجر الناصري</a></li>
-                <li><a href="https://t.me/M017fb8494e179BOT">🧠 بوت ذكاء اصطناعي</a></li>
             </ul>
 
-            <span class="dev-section-title">📢 قنواتنا الرسمية</span>
-            <ul class="dev-links">
-                <li><a href="https://t.me/tukgyguiggh">🔗 القناة الرسمية</a></li>
-                <li><a href="https://whatsapp.com/channel/0029VbAWev235fLnBuNOr60J">🟢 قناة الواتساب</a></li>
-            </ul>
-
-            <span class="dev-section-title">📞 للتواصل المباشر</span>
+            <span class="dev-section-title">📞 تواصل معنا</span>
             <ul class="dev-links">
                 <li>👤 المطور: <a href="https://t.me/ALNassrA">@ALNassrA</a></li>
-                <li>📲 أرقام الواتساب (اضغط للمراسلة):<br> 
-                    <a class="wa-link" href="https://wa.me/967713282365">713282365</a> | 
-                    <a class="wa-link" href="https://wa.me/967739841457">739841457</a> | 
-                    <a class="wa-link" href="https://wa.me/967772382481">772382481</a>
-                </li>
+                <li>📲 واتساب الأساسي: <a class="wa-link" href="https://wa.me/967713282365">713282365</a></li>
+                <li>📲 رقم الاحتياط: <a class="wa-link" href="https://wa.me/967739841457">739841457</a></li>
             </ul>
         </div>
     </div>

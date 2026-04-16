@@ -13,6 +13,7 @@
             --green-neon: #39ff14;
             --purple-neon: #bc13fe;
             --cyan-neon: #00ffff;
+            --orange-neon: #ffaa00;
         }
 
         body {
@@ -62,12 +63,12 @@
 
         @keyframes rotateBorder { 100% { transform: rotate(360deg); } }
 
-        /* --- عبارات الذكر المضيئة --- */
+        /* --- عبارات الذكر المحدثة --- */
         .dhikr-container {
             margin: 10px 0 25px 0;
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
             flex-wrap: wrap;
             position: relative;
             z-index: 5;
@@ -75,24 +76,24 @@
 
         .dhikr-item {
             font-weight: 900;
-            font-size: 1rem;
-            padding: 5px 12px;
+            font-size: 0.85rem;
+            padding: 6px 12px;
             border-radius: 50px;
             border: 1px solid currentColor;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.6);
             animation: pulse-neon 2s infinite alternate;
         }
 
         @keyframes pulse-neon {
             0% { opacity: 0.7; transform: scale(0.95); box-shadow: 0 0 5px currentColor; }
-            100% { opacity: 1; transform: scale(1.05); box-shadow: 0 0 20px currentColor; text-shadow: 0 0 10px currentColor; }
+            100% { opacity: 1; transform: scale(1.05); box-shadow: 0 0 15px currentColor; text-shadow: 0 0 8px currentColor; }
         }
 
         .sali { color: var(--green-neon); }
         .subhan { color: var(--blue-neon); }
+        .astagfir { color: var(--orange-neon); }
         .akbar { color: var(--red-neon); }
 
-        /* --- خلفية الترمكس --- */
         .termux-full-bg {
             position: absolute;
             top: 0;
@@ -107,14 +108,10 @@
             z-index: 0;
             pointer-events: none;
             overflow: hidden;
-            line-height: 30px;
             animation: moveUp 10s linear infinite;
         }
 
-        @keyframes moveUp {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-30%); }
-        }
+        @keyframes moveUp { 0% { transform: translateY(0); } 100% { transform: translateY(-30%); } }
 
         .profile-img {
             width: 120px;
@@ -144,15 +141,14 @@
         .app-card:hover { transform: translateX(-5px); background: rgba(255, 255, 255, 0.08); }
         .app-info { text-align: right; }
         .app-info h3 { margin: 0; font-size: 0.9rem; color: #fff; }
-        .download-btn { background: var(--gold); color: #000; padding: 8px 15px; border-radius: 8px; text-decoration: none; font-size: 0.8rem; font-weight: bold; box-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
+        .download-btn { background: var(--gold); color: #000; padding: 8px 15px; border-radius: 8px; text-decoration: none; font-size: 0.8rem; font-weight: bold; }
 
         .about-dev { text-align: right; background: rgba(255, 255, 255, 0.02); border-radius: 20px; padding: 20px; margin: 25px auto; width: 85%; border: 1px solid #333; position: relative; z-index: 5; }
-        .about-dev h3 { color: var(--gold); text-align: center; border-bottom: 1px solid #444; padding-bottom: 10px; margin-bottom: 15px; }
+        .about-dev h3 { color: var(--gold); text-align: center; border-bottom: 1px solid #444; padding-bottom: 10px; }
         .dev-section-title { color: var(--blue-neon); font-weight: bold; margin-top: 15px; display: block; font-size: 0.9rem; }
         .dev-links { list-style: none; padding: 0; margin: 10px 0; }
         .dev-links li { margin: 8px 0; font-size: 0.85rem; }
-        .dev-links a { color: #ccc; text-decoration: none; transition: 0.2s; }
-        .dev-links a:hover { color: var(--gold); padding-right: 5px; }
+        .dev-links a { color: #ccc; text-decoration: none; }
         .wa-link { color: var(--green-neon) !important; font-weight: bold; }
     </style>
 </head>
@@ -167,6 +163,7 @@
         <div class="dhikr-container">
             <span class="dhikr-item sali">صلي على محمد</span>
             <span class="dhikr-item subhan">سبحان الله</span>
+            <span class="dhikr-item astagfir">استغفر الله</span>
             <span class="dhikr-item akbar">الله أكبر</span>
         </div>
 
@@ -180,7 +177,7 @@
             <img src="https://github.com/alnasree2027-pixel.png" alt="الناصري" class="profile-img">
         </div>
 
-        <h2 style="color:var(--gold); position:relative; z-index:5; margin-top: 10px;">الناصري للتقنية</h2>
+        <h2 style="color:var(--gold); position:relative; z-index:5;">الناصري للتقنية</h2>
         <p class="famous-quote">( كن من تكون لاتهمني )</p>
 
         <div class="scrolling-bar">
@@ -197,23 +194,19 @@
         
         <div class="app-card" style="border-right-color: var(--cyan-neon);">
             <div class="app-info"><h3>تطبيق مجال ١</h3></div>
-            <a href="#" class="download-btn" style="background: var(--cyan-neon); color: #000;">تحميل</a>
+            <a href="majal1.apk" class="download-btn" style="background: var(--cyan-neon); color: #000;">تحميل</a>
         </div>
 
         <div class="about-dev">
             <h3>👑 عن المطور 👑</h3>
-            <span class="dev-section-title">🤖 عالم البوتات الذكية</span>
+            <span class="dev-section-title">🤖 عالم البوتات</span>
             <ul class="dev-links">
                 <li><a href="https://t.me/ALNassrA280BOT">🛡️ بوت حماية القنوات</a></li>
                 <li><a href="https://t.me/Mc2082b092c280BOT">📥 بوت تحميل الفيديوهات</a></li>
-                <li><a href="https://t.me/ALNassrA112BOT">🛒 بوت متجر الناصري</a></li>
             </ul>
-
-            <span class="dev-section-title">📞 تواصل معنا</span>
+            <span class="dev-section-title">📞 تواصل</span>
             <ul class="dev-links">
-                <li>👤 المطور: <a href="https://t.me/ALNassrA">@ALNassrA</a></li>
-                <li>📲 واتساب الأساسي: <a class="wa-link" href="https://wa.me/967713282365">713282365</a></li>
-                <li>📲 رقم الاحتياط: <a class="wa-link" href="https://wa.me/967739841457">739841457</a></li>
+                <li>📲 واتساب: <a class="wa-link" href="https://wa.me/967713282365">713282365</a></li>
             </ul>
         </div>
     </div>

@@ -36,7 +36,6 @@
             background: rgba(20, 20, 20, 0.9);
             backdrop-filter: blur(10px);
             position: relative;
-            overflow: hidden;
             z-index: 1;
         }
 
@@ -63,75 +62,25 @@
 
         @keyframes rotateBorder { 100% { transform: rotate(360deg); } }
 
-        /* --- عداد الزوار المضيء --- */
-        .visitor-counter {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--cyan-neon);
-            border-radius: 15px;
-            padding: 10px;
-            margin: 10px auto 20px;
-            width: fit-content;
-            color: var(--cyan-neon);
-            font-weight: bold;
-            font-size: 0.9rem;
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+        /* --- الأذكار والعداد --- */
+        .dhikr-container { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; position: relative; z-index: 5; }
+        .dhikr-item { font-weight: 900; font-size: 0.7rem; padding: 4px 10px; border-radius: 50px; border: 1px solid currentColor; animation: pulse-neon 2s infinite alternate; }
+        @keyframes pulse-neon { 0% { opacity: 0.6; box-shadow: 0 0 5px currentColor; } 100% { opacity: 1; box-shadow: 0 0 15px currentColor; } }
+        
+        .visitor-counter { color: var(--cyan-neon); font-weight: bold; margin-bottom: 20px; font-size: 0.8rem; position: relative; z-index: 5; }
+
+        /* --- تأثير الشريط السحري والنجوم --- */
+        .magic-header {
             position: relative;
-            z-index: 5;
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 30px;
+            z-index: 10;
         }
-        #count { font-size: 1.2rem; color: #fff; text-shadow: 0 0 5px var(--cyan-neon); }
-
-        .dhikr-container {
-            margin: 10px 0 25px 0;
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 5;
-        }
-
-        .dhikr-item {
-            font-weight: 900;
-            font-size: 0.75rem;
-            padding: 5px 10px;
-            border-radius: 50px;
-            border: 1px solid currentColor;
-            background: rgba(0,0,0,0.6);
-            animation: pulse-neon 2s infinite alternate;
-        }
-
-        @keyframes pulse-neon {
-            0% { opacity: 0.7; transform: scale(0.95); box-shadow: 0 0 5px currentColor; }
-            100% { opacity: 1; transform: scale(1.05); box-shadow: 0 0 15px currentColor; text-shadow: 0 0 8px currentColor; }
-        }
-
-        .sali { color: var(--green-neon); }
-        .subhan { color: var(--blue-neon); }
-        .astagfir { color: var(--orange-neon); }
-        .akbar { color: var(--red-neon); }
-
-        .termux-full-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 40%;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 25px;
-            font-weight: 900;
-            color: var(--green-neon);
-            opacity: 0.1;
-            z-index: 0;
-            pointer-events: none;
-            overflow: hidden;
-            animation: moveUp 10s linear infinite;
-        }
-
-        @keyframes moveUp { 0% { transform: translateY(0); } 100% { transform: translateY(-30%); } }
 
         .profile-img {
-            width: 120px;
-            height: 120px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
             border: 2px solid var(--gold);
             padding: 5px;
@@ -139,31 +88,61 @@
             object-fit: cover;
             box-shadow: 0 0 20px var(--gold);
             position: relative;
-            z-index: 5;
+            z-index: 11;
         }
 
-        .curved-header { position: relative; margin-bottom: 30px; z-index: 5; }
-        .curved-name-svg { width: 100%; height: 100px; position: absolute; top: -30px; left: 0; z-index: 6; }
-        .curved-text { fill: var(--gold); font-size: 28px; font-weight: 900; }
+        .magic-ribbon {
+            position: absolute;
+            top: 45%;
+            left: -15%;
+            width: 130%;
+            height: 35px;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.8), var(--gold), rgba(212, 175, 55, 0.8), transparent);
+            color: #000;
+            font-weight: 900;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(-5deg);
+            box-shadow: 0 0 20px var(--gold);
+            z-index: 20;
+            border-radius: 5px;
+            animation: floating 3s ease-in-out infinite alternate;
+            text-shadow: 0 0 2px #fff;
+        }
 
-        .famous-quote { font-size: 1.4rem; font-weight: bold; margin-bottom: 10px; display: inline-block; direction: ltr; animation: colorShift 4s infinite alternate; position: relative; z-index: 5; }
-        @keyframes colorShift { 0% { color: #ff0000; } 50% { color: #00d2ff; } 100% { color: #ff00ff; } }
+        @keyframes floating {
+            0% { transform: rotate(-5deg) translateY(0); }
+            100% { transform: rotate(-2deg) translateY(-10px); }
+        }
 
-        .scrolling-bar { background: rgba(255, 255, 255, 0.05); border-top: 1px solid var(--gold); border-bottom: 1px solid var(--gold); margin: 15px 0; padding: 10px 0; overflow: hidden; white-space: nowrap; position: relative; z-index: 5; }
-        .scrolling-text { display: inline-block; font-weight: bold; animation: scroll-left 15s linear infinite; }
-        @keyframes scroll-left { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+        /* النجوم المتناثرة خلف الشريط */
+        .star {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #fff;
+            border-radius: 50%;
+            opacity: 0;
+            animation: scatter 2.5s infinite;
+            z-index: 15;
+        }
 
-        .app-card { background: rgba(255, 255, 255, 0.03); border-right: 4px solid var(--gold); border-radius: 12px; padding: 15px; margin: 15px auto; width: 85%; display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 5; transition: 0.3s; }
-        .app-card:hover { transform: translateX(-5px); background: rgba(255, 255, 255, 0.08); }
-        .app-info { text-align: right; }
-        .app-info h3 { margin: 0; font-size: 0.9rem; color: #fff; }
-        .download-btn { background: var(--gold); color: #000; padding: 8px 15px; border-radius: 8px; text-decoration: none; font-size: 0.8rem; font-weight: bold; }
+        @keyframes scatter {
+            0% { transform: translate(0,0) scale(1); opacity: 1; }
+            100% { transform: translate(var(--x), var(--y)) scale(0); opacity: 0; }
+        }
+
+        /* --- التطبيقات والقنوات --- */
+        .app-card { background: rgba(255, 255, 255, 0.03); border-right: 4px solid var(--gold); border-radius: 12px; padding: 15px; margin: 12px auto; width: 85%; display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 5; transition: 0.3s; }
+        .app-info h3 { margin: 0; font-size: 0.9rem; color: #fff; text-align: right; }
+        .download-btn { background: var(--gold); color: #000; padding: 6px 12px; border-radius: 8px; text-decoration: none; font-size: 0.75rem; font-weight: bold; }
 
         .about-dev { text-align: right; background: rgba(255, 255, 255, 0.02); border-radius: 20px; padding: 20px; margin: 25px auto; width: 85%; border: 1px solid #333; position: relative; z-index: 5; }
-        .about-dev h3 { color: var(--gold); text-align: center; border-bottom: 1px solid #444; padding-bottom: 10px; margin-bottom: 15px; }
         .dev-section-title { color: var(--blue-neon); font-weight: bold; margin-top: 15px; display: block; font-size: 0.9rem; }
         .dev-links { list-style: none; padding: 0; margin: 10px 0; }
-        .dev-links li { margin: 8px 0; font-size: 0.85rem; }
+        .dev-links li { margin: 8px 0; font-size: 0.8rem; }
         .dev-links a { color: #ccc; text-decoration: none; }
         .wa-link { color: var(--green-neon) !important; font-weight: bold; }
     </style>
@@ -171,73 +150,60 @@
 <body>
 
     <div class="main-wrapper">
-        <div class="termux-full-bg">
-            ALNASRE ALNASRE ALNASRE ALNASRE
-            ALNASRE ALNASRE ALNASRE ALNASRE
-        </div>
-
+        
         <div class="dhikr-container">
-            <span class="dhikr-item sali">صلي على محمد</span>
-            <span class="dhikr-item subhan">سبحان الله</span>
-            <span class="dhikr-item astagfir">استغفر الله</span>
-            <span class="dhikr-item akbar">الله أكبر</span>
+            <span class="dhikr-item" style="color:var(--green-neon)">صلي على محمد</span>
+            <span class="dhikr-item" style="color:var(--blue-neon)">سبحان الله</span>
+            <span class="dhikr-item" style="color:var(--orange-neon)">استغفر الله</span>
+            <span class="dhikr-item" style="color:var(--red-neon)">الله أكبر</span>
         </div>
 
-        <div class="visitor-counter">
-            👁️ عدد الزوار: <span id="count">...</span>
-        </div>
+        <div class="visitor-counter">👁️ عدد زوار موقعنا: <span id="count">...</span></div>
 
-        <div class="curved-header">
-            <svg class="curved-name-svg" viewBox="0 0 500 150">
-                <path id="curvePath" d="M 80 120 C 180 40, 320 40, 420 120" fill="transparent" />
-                <text class="curved-text">
-                    <textPath href="#curvePath" startOffset="50%" text-anchor="middle">عبد الناصر الشميري</textPath>
-                </text>
-            </svg>
+        <div class="magic-header">
             <img src="https://github.com/alnasree2027-pixel.png" alt="الناصري" class="profile-img">
+            <div class="magic-ribbon">عبد الناصر الشميري</div>
+            
+            <div class="star" style="--x: 60px; --y: -60px; left: 50%; top: 40%;"></div>
+            <div class="star" style="--x: -80px; --y: -50px; left: 40%; top: 50%; animation-delay: 0.5s;"></div>
+            <div class="star" style="--x: 70px; --y: 70px; left: 60%; top: 45%; animation-delay: 1s;"></div>
+            <div class="star" style="--x: -50px; --y: 80px; left: 30%; top: 55%; animation-delay: 1.5s;"></div>
         </div>
 
-        <h2 style="color:var(--gold); position:relative; z-index:5;">الناصري للتقنية</h2>
-        <p class="famous-quote">( كن من تكون لاتهمني )</p>
-
-        <div class="scrolling-bar">
-            <div class="scrolling-text">المطور: عبد الناصر نصر الشميري | ﴿وقل ربي زدني علما ﴾ | ترقبوا كل جديد</div>
-        </div>
-
-        <h3 style="color: var(--gold); font-size: 1.1rem; position:relative; z-index:5; margin: 20px 0;">🚀 متجر تطبيقات الناصري</h3>
+        <h2 style="color:var(--gold); margin-bottom: 20px;">الناصري للتقنية</h2>
         
         <div class="app-card"><div class="app-info"><h3>تطبيق فيروسات الناصري</h3></div><a href="#" class="download-btn">تحميل</a></div>
-        <div class="app-card" style="border-right-color: var(--blue-neon);"><div class="app-info"><h3>تطبيق تعلم مجال الواتس</h3></div><a href="#" class="download-btn" style="background: var(--blue-neon);">تحميل</a></div>
-        <div class="app-card" style="border-right-color: var(--red-neon);"><div class="app-info"><h3>قفل الجهاز (للردع)</h3><span style="color:var(--red-neon); font-size:0.7rem">الكود: 7132</span></div><a href="#" class="download-btn" style="background: var(--red-neon); color:#fff">تحميل</a></div>
-        <div class="app-card" style="border-right-color: var(--green-neon);"><div class="app-info"><h3>شروحات 𝙰𝙻𝙽𝙰𝚂𝚁𝙴</h3></div><a href="#" class="download-btn" style="background: var(--green-neon);">تحميل</a></div>
-        <div class="app-card" style="border-right-color: var(--purple-neon);"><div class="app-info"><h3>تعلم الهكر الأخلاقي</h3></div><a href="#" class="download-btn" style="background: var(--purple-neon); color:#fff">تحميل</a></div>
-        <div class="app-card" style="border-right-color: var(--cyan-neon);"><div class="app-info"><h3>تطبيق مجال ١</h3></div><a href="majal1.apk" class="download-btn" style="background: var(--cyan-neon); color: #000;">تحميل</a></div>
+        <div class="app-card" style="border-right-color: var(--blue-neon);"><div class="app-info"><h3>تعلم مجال الواتس</h3></div><a href="#" class="download-btn" style="background:var(--blue-neon)">تحميل</a></div>
+        <div class="app-card" style="border-right-color: var(--cyan-neon);"><div class="app-info"><h3>تطبيق مجال ١</h3></div><a href="majal1.apk" class="download-btn" style="background:var(--cyan-neon);color:#000">تحميل</a></div>
+        <div class="app-card" style="border-right-color: var(--red-neon);"><div class="app-info"><h3>قفل الجهاز (7132)</h3></div><a href="#" class="download-btn" style="background:var(--red-neon);color:#fff">تحميل</a></div>
 
         <div class="about-dev">
-            <h3>👑 عن المطور 👑</h3>
-            <span class="dev-section-title">🤖 عالم البوتات الذكية</span>
+            <h3>👑 المطور والقنوات 👑</h3>
+            
+            <span class="dev-section-title">🤖 البوتات الذكية</span>
             <ul class="dev-links">
-                <li><a href="https://t.me/ALNassrA280BOT">🛡️ بوت حماية القنوات</a></li>
-                <li><a href="https://t.me/Mc2082b092c280BOT">📥 بوت تحميل الفيديوهات</a></li>
-                <li><a href="https://t.me/ALNassrA112BOT">🛒 بوت متجر الناصري</a></li>
-                <li><a href="https://t.me/M017fb8494e179BOT">🧠 بوت ذكاء اصطناعي (AI)</a></li>
+                <li><a href="https://t.me/ALNassrA280BOT">🛡️ بوت الحماية</a></li>
+                <li><a href="https://t.me/ALNassrA112BOT">🛒 بوت المتجر</a></li>
+                <li><a href="https://t.me/M017fb8494e179BOT">🧠 بوت الذكاء (AI)</a></li>
             </ul>
 
-            <span class="dev-section-title">📞 للتواصل المباشر</span>
+            <span class="dev-section-title">📢 قنواتنا الرسمية</span>
             <ul class="dev-links">
-                <li>👤 المطور: <a href="https://t.me/ALNassrA">@ALNassrA</a></li>
-                <li>📲 واتساب:<br> 
-                    <a class="wa-link" href="https://wa.me/967713282365">713282365</a> | 
-                    <a class="wa-link" href="https://wa.me/967739841457">739841457</a>
-                </li>
+                <li><a href="https://t.me/tukgyguiggh">🔗 قناة التليجرام</a></li>
+                <li><a href="https://whatsapp.com/channel/0029VbAWev235fLnBuNOr60J">🔗 قناة الواتساب</a></li>
+            </ul>
+
+            <span class="dev-section-title">📞 تواصل معنا واتساب</span>
+            <ul class="dev-links">
+                <li><a class="wa-link" href="https://wa.me/967713282365">713282365</a></li>
+                <li><a class="wa-link" href="https://wa.me/967739841457">739841457</a></li>
+                <li><a class="wa-link" href="https://wa.me/967772382481">772382481</a></li>
             </ul>
         </div>
     </div>
 
     <script>
-        function cb(response) {
-            document.getElementById('count').innerText = response.value;
-        }
+        function cb(response) { document.getElementById('count').innerText = response.value; }
     </script>
     <script async src="https://api.countapi.xyz/hit/alnasree2027-pixel.github.io/visits?callback=cb"></script>
 
